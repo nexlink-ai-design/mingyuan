@@ -1,5 +1,6 @@
 'use client';
 
+import { Sparkles } from 'lucide-react';
 import EliteCard from './EliteCard';
 
 export default function EliteRecommendations() {
@@ -15,6 +16,7 @@ export default function EliteRecommendations() {
     <section>
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
+          <Sparkles className="w-5 h-5 lg:w-6 lg:h-6 text-[#E05299]" />
           <h2 className="text-lg lg:text-2xl font-bold text-gray-900">精英推荐</h2>
           <span className="bg-gray-100 text-gray-500 text-[10px] px-2 py-0.5 rounded-full">128 位在线</span>
         </div>

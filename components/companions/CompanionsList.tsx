@@ -1,9 +1,13 @@
 'use client';
 
-import { Filter, Search } from 'lucide-react';
+import { Filter, Search, Crown } from 'lucide-react';
+import { useState, useMemo } from 'react';
 import CompanionListItem from './CompanionListItem';
 
 export default function CompanionsList() {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filterStatus, setFilterStatus] = useState<'all' | 'online' | 'offline'>('all');
+
   const companions = [
     {
       name: "林优子",
@@ -58,15 +62,48 @@ export default function CompanionsList() {
     },
   ];
 
+  // 过滤companion数据
+  const filteredCompanions = useMemo(() => {
+    return companions.filter(companion => {
+      const matchesSearch = companion.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                           companion.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
+      const matchesFilter = filterStatus === 'all' || 
+                           (filterStatus === 'online' && !companion.offline) ||
+                           (filterStatus === 'offline' && companion.offline);
+      return matchesSearch && matchesFilter;
+    });
+  }, [searchTerm, filterStatus, companions]);
+
+  const filterOptions = [
+    { label: '全部', value: 'all' as const },
+    { label: '在线', value: 'online' as const },
+    { label: '离线', value: 'offline' as const },
+  ];
+
   return (
     <section className="space-y-4">
       <div className="sticky top-[64px] lg:top-[72px] z-20 bg-[#f8f9fa]/90 backdrop-blur-md py-2 flex flex-col gap-3">
         <div className="flex items-center justify-between">
-          <h2 className="text-lg lg:text-2xl font-bold text-gray-900">名媛陪玩</h2>
-          <button className="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-full shadow-sm border border-gray-100 text-xs font-medium text-gray-600">
-            <Filter className="w-3.5 h-3.5" />
-            筛选: 全部
-          </button>
+          <div className="flex items-center gap-2">
+            <Crown className="w-5 h-5 lg:w-6 lg:h-6 text-[#E05299]" />
+            <h2 className="text-lg lg:text-2xl font-bold text-gray-900">名媛陪玩</h2>
+          </div>
+          <div className="flex items-center gap-2">
+            {filterOptions.map(option => (
+              <button
+                key={option.value}
+                onClick={() => setFilterStatus(option.value)}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                  filterStatus === option.value
+                    ? 'bg-[#E05299] text-white shadow-md'
+                    : 'bg-white border border-gray-100 text-gray-600 hover:border-[#E05299]'
+                }`}
+              >
+                {option.value === 'all' && <Filter className="w-3.5 h-3.5" />}
+                {option.label}
+              </button>
+            ))}
+          </div>
         </div>
         <div className="relative">
           <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
@@ -75,20 +112,30 @@ export default function CompanionsList() {
           <input
             type="text"
             placeholder="搜索技师名字或风格"
-            className="w-full bg-white border border-gray-100 rounded-xl py-2.5 pl-10 pr-4 text-sm shadow-sm focus:ring-2 focus:ring-[#E05299]/10 outline-none"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="w-full bg-white border border-gray-300 rounded-xl py-2.5 pl-10 pr-4 text-sm text-gray-900 placeholder-gray-500 shadow-sm focus:ring-2 focus:ring-[#E05299] focus:border-transparent outline-none transition-all"
           />
         </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {companions.map((companion) => (
-          <CompanionListItem key={companion.name} {...companion} />
-        ))}
+        {filteredCompanions.length > 0 ? (
+          filteredCompanions.map((companion) => (
+            <CompanionListItem key={companion.name} {...companion} />
+          ))
+        ) : (
+          <div className="col-span-full py-10 text-center">
+            <p className="text-gray-400 text-sm">未找到匹配的技师</p>
+          </div>
+        )}
       </div>
 
-      <div className="py-10 text-center">
-        <p className="text-gray-400 text-sm">已加载全部在线技师</p>
-      </div>
+      {filteredCompanions.length > 0 && (
+        <div className="py-10 text-center">
+          <p className="text-gray-400 text-sm">已加载全部技师</p>
+        </div>
+      )}
     </section>
   );
 }

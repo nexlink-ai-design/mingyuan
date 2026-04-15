@@ -7,6 +7,7 @@ import HeroBanner from '@/components/companions/HeroBanner';
 import FeatureGrid from '@/components/companions/FeatureGrid';
 import EliteRecommendations from '@/components/companions/EliteRecommendations';
 import CompanionsList from '@/components/companions/CompanionsList';
+import ScrollToTopButton from '@/components/companions/ScrollToTopButton';
 
 export default function CompanionsPage() {
   return (
@@ -31,6 +32,8 @@ export default function CompanionsPage() {
 
         <MobileBottomNav />
       </main>
+
+      <ScrollToTopButton />
     </div>
   );
 }

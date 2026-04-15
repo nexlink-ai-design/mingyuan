@@ -20,7 +20,7 @@ export default function EliteCard({
   return (
     <div className={`min-w-[160px] h-[220px] rounded-2xl overflow-hidden relative shadow-sm group cursor-pointer ${className}`}>
       <img src={img} alt={name} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-      <div className="absolute top-2 left-2 bg-black/40 backdrop-blur-md px-2 py-0.5 rounded-full flex items-center gap-1">
+      <div className="absolute top-2 left-2 bg-black/30 backdrop-blur-md px-2 py-0.5 rounded-full flex items-center gap-1">
         <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
         <span className="text-white text-[10px] font-medium">在线</span>
       </div>

@@ -29,7 +29,7 @@ export default function CompanionListItem({
     <div className="bg-white rounded-2xl p-3 flex gap-4 shadow-sm border border-gray-50 hover:shadow-md transition-shadow group">
       <div className="w-[100px] h-[130px] rounded-2xl overflow-hidden relative flex-shrink-0">
         <img src={img} alt={name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-        <div className="absolute top-2 left-2 bg-black/50 backdrop-blur-sm px-2 py-0.5 rounded-lg">
+        <div className="absolute top-2 left-2 bg-black/30 backdrop-blur-sm px-2 py-0 rounded-lg flex items-center justify-center h-5">
           <span className="text-white text-[9px]">{city}</span>
         </div>
         {offline && (
