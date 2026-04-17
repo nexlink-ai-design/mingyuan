@@ -37,7 +37,7 @@ export default function FeatureCard({
     <div className={`${bg} rounded-2xl p-4 relative overflow-hidden h-24 flex flex-col justify-center group cursor-pointer hover:shadow-md transition-shadow`}>
       <div className="flex items-center gap-1.5 mb-1">
         {IconComponent && <IconComponent className={`w-3.5 h-3.5 ${iconColor}`} />}
-        <span className={`text-[13px] font-bold ${iconColor}`}>{title}</span>
+        <span className={`text-sm font-bold ${iconColor} leading-none`}>{title}</span>
       </div>
       <p className="text-sm font-bold text-gray-900 relative z-10">{subtitle}</p>
       {BgIconComponent && <BgIconComponent className={`absolute -bottom-2 -right-2 w-12 h-12 ${iconColor} opacity-10 group-hover:scale-110 transition-transform`} />}

@@ -18,7 +18,7 @@ function NavItem({ icon: Icon, label, active = false, badge }: NavItemProps) {
         <span className="font-bold">{label}</span>
       </div>
       {badge && (
-        <span className="bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full min-w-[18px] text-center">
+        <span className="bg-red-500 text-white text-xs font-bold px-1.5 py-0.5 rounded-full min-w-[18px] text-center leading-none\">
           {badge}
         </span>
       )}

@@ -4,8 +4,9 @@ import { useRouter, usePathname } from "next/navigation";
 import { Home, ClipboardList, User, Heart } from "lucide-react";
 
 const tabs = [
-  { icon: Home, label: "名媛", path: "/" },
-  { icon: Heart, label: "悦享", path: "/massage" },
+  { icon: Home, label: "名媛", path: "/companions" },
+  { icon: Heart, label: "悦享", path: "/selection" },
+  { icon: Heart, label: "陪玩", path: "/companions" },
   { icon: ClipboardList, label: "订单", path: "/orders" },
   { icon: User, label: "我的", path: "/profile" },
 ];

@@ -30,7 +30,7 @@ export default function CompanionListItem({
       <div className="w-[100px] h-[130px] rounded-2xl overflow-hidden relative flex-shrink-0">
         <img src={img} alt={name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
         <div className="absolute top-2 left-2 bg-black/30 backdrop-blur-sm px-2 py-0 rounded-lg flex items-center justify-center h-5">
-          <span className="text-white text-[9px]">{city}</span>
+          <span className="text-white text-xs leading-none">{city}</span>
         </div>
         {offline && (
           <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
@@ -45,18 +45,18 @@ export default function CompanionListItem({
               <h3 className="text-base font-bold text-gray-900">{name}</h3>
               <div className="flex items-center gap-0.5 bg-amber-50 px-1.5 py-0.5 rounded">
                 <Star className="w-2.5 h-2.5 text-amber-500 fill-amber-500" />
-                <span className="text-amber-500 text-[10px] font-bold">{rating}</span>
+                <span className="text-amber-500 text-xs font-bold leading-none">{rating}</span>
               </div>
             </div>
-            <span className="text-gray-400 text-[10px]">入驻: {date}</span>
+            <span className="text-gray-400 text-xs leading-none">入驻: {date}</span>
           </div>
           <div className="flex items-center gap-1 text-gray-500">
             <MapPin className="w-3 h-3" />
-            <span className="text-[11px]">{location}</span>
+            <span className="text-xs text-gray-600 leading-normal">{location}</span>
           </div>
           <div className="flex flex-wrap gap-1.5 mt-2">
             {tags.map((tag, idx) => (
-              <span key={tag} className={`text-[10px] px-2 py-0.5 rounded-full ${idx === 0 ? 'bg-[#E05299]/10 text-[#E05299]' : 'bg-gray-100 text-gray-600'}`}>
+              <span key={tag} className={`text-xs px-2 py-0.5 rounded-full leading-none ${idx === 0 ? 'bg-[#E05299]/10 text-[#E05299]' : 'bg-gray-100 text-gray-600'}`}>
                 {tag}
               </span>
             ))}
@@ -65,7 +65,7 @@ export default function CompanionListItem({
         <div className="flex items-end justify-between mt-2">
           <div className="flex items-baseline gap-0.5">
             <span className="text-[#E05299] text-xl font-bold">¥{price}</span>
-            <span className="text-gray-400 text-[10px]">/小时</span>
+            <span className="text-gray-400 text-xs leading-none">/小时</span>
           </div>
           <button className="bg-[#E05299] text-white text-sm font-bold px-5 py-1.5 rounded-full shadow-lg shadow-[#E05299]/20 hover:bg-[#c44183] transition-colors">
             预约

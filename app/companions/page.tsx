@@ -1,13 +1,13 @@
 'use client';
 
 import SidebarNav from '@/components/companions/SidebarNav';
-import MobileBottomNav from '@/components/companions/MobileBottomNav';
 import DesktopHeader from '@/components/companions/DesktopHeader';
 import HeroBanner from '@/components/companions/HeroBanner';
 import FeatureGrid from '@/components/companions/FeatureGrid';
 import EliteRecommendations from '@/components/companions/EliteRecommendations';
 import CompanionsList from '@/components/companions/CompanionsList';
 import ScrollToTopButton from '@/components/companions/ScrollToTopButton';
+import GlobalBottomNav from '@/components/GlobalBottomNav';
 
 export default function CompanionsPage() {
   return (
@@ -30,7 +30,7 @@ export default function CompanionsPage() {
           </div>
         </div>
 
-        <MobileBottomNav />
+        <GlobalBottomNav />
       </main>
 
       <ScrollToTopButton />

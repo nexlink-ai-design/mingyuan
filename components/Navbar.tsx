@@ -17,7 +17,7 @@ const Navbar = () => {
           <div className="w-8 h-8 gradient-accent rounded-lg flex items-center justify-center">
             <Sparkles className="w-4 h-4 text-primary-foreground" />
           </div>
-          <span className="font-bold text-lg text-foreground">名媛有约</span>
+          <span className="font-bold text-lg text-foreground">名媛选妃</span>
         </div>
 
         <div className="hidden md:flex items-center gap-6 text-sm text-muted-foreground">
