@@ -14,14 +14,14 @@ const PUBLIC_ROUTES = [
 
 // 需要认证的受保护路由
 const PROTECTED_ROUTES = [
-//   '/user',
-//   '/playmate',
-//   '/agent',
-//   '/chat',
-//   '/order',
-//   '/review',
-//   '/complaint',
-//   '/payment',
+  '/user',
+  '/playmate',
+  '/agent',
+  '/chat',
+  '/order',
+  '/review',
+  '/complaint',
+  '/payment',
 ];
 
 export async function proxy(request: NextRequest) {
